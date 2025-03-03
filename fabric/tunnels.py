@@ -99,6 +99,7 @@ class TunnelManager(ExceptionHandlingThread):
                 exceptions.append(wrapper)
         # Handle exceptions
         if exceptions:
+            sock.close()
             raise ThreadException(exceptions)
 
         # All we have left to close is our own sock.
